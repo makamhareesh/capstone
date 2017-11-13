@@ -5,7 +5,8 @@
     image: gcr.io/tensorflow/tensorflow:1.3.0-devel-gpu
     command: python training.py
     inputs:
-      - name: default
+      - name: training-set-images
+      - name: training-set-labels
     parameters:
       - name: default
 
