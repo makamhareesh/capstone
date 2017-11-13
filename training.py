@@ -13,7 +13,8 @@ import pandas as pd
 import csv
 import numpy as np
 from ast import literal_eval
-
+from shutil import copy2
+import tarfile
 
 # you need to change this to your data directory
 #Function to load the list of image file paths and its labels.
@@ -28,12 +29,21 @@ def get_files():
     print ("Loading files...")
     image_list=[]
     label_list=[]
-    trainpath="/Users/hmakam200/Desktop/ramya_data/FinalData_256/"
-    with open('ramyaList.csv') as f:
+    trainpath="/valohai/inputs/training-set-images/FinalData_256.tgz"
+
+    train_dir = os.getcwd()
+    copy2(trainpath, train_dir)
+    tar = tarfile.open(trainpath)
+        for member in tar.getmembers():
+                f=tar.extractfile(member)
+                content=f.read()
+                tar.close()
+
+    with open('/valohai/inputs/training-set-labels/ramyaList.l3.csv') as f:
         reader = csv.reader(f,delimiter=',')
         for row in reader:
 
-            image_list.append(trainpath+row[0]+".jpeg")
+            image_list.append(train_dir+row[0]+".jpeg")
             temp=literal_eval(row[1])
             label_list.append(temp)
     #print (type(image_list[0]))
