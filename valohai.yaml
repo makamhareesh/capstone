@@ -5,9 +5,9 @@
     image: gcr.io/tensorflow/tensorflow:1.3.0-devel-gpu
     command: python training.py
     inputs:
-      - name: training-set-images
+      - name: default
     parameters:
-      - name: training-set-images
+      - name: default
 
 - step:
     name: Worker environment check
