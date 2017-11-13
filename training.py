@@ -34,10 +34,10 @@ def get_files():
     train_dir = os.getcwd()
     copy2(trainpath, train_dir)
     tar = tarfile.open(trainpath)
-        for member in tar.getmembers():
-                f=tar.extractfile(member)
-                content=f.read()
-                tar.close()
+    for member in tar.getmembers():
+        f=tar.extractfile(member)
+        content=f.read()
+    tar.close()
 
     with open('/valohai/inputs/training-set-labels/ramyaList.l3.csv') as f:
         reader = csv.reader(f,delimiter=',')
