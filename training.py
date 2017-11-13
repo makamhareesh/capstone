@@ -33,7 +33,7 @@ def get_files():
 
     train_dir = os.getcwd()
     copy2(trainpath, train_dir)
-    tar = tarfile.open(train_dir)
+    tar = tarfile.open(train_dir+"/FinalData_256.tgz")
     tar.extractall(path=train_dir)
     tar.close()
 
