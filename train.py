@@ -47,7 +47,7 @@ def get_files():
         for filename in files:
             #print os.path.join(path,filename)
             newcount+=1
-    print "newcount : "+newcount
+    print "newcount : "+str(newcount)
     count=0
     drimage=0
     with open('/valohai/inputs/training-set-labels/ramyaList.l3.csv') as f:
