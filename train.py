@@ -33,14 +33,14 @@ def get_files():
     label_list=[]
     trainpath="/valohai/inputs/training-set-images/FinalData_256.tgz"
 
-    train_dir = '/tmp/tensorflow/images/'
+    train_dir = '/valohai/inputs/training-set-images/'
 
     if not os.path.exists(train_dir):
         os.makedirs(train_dir)
 
     copy2(trainpath, train_dir)
     tar = tarfile.open(trainpath)
-    tar.extractall("/tmp/tensorflow/images/")
+    tar.extractall("/valohai/inputs/training-set-images/")
     tar.close()
     newcount=0
     f=open('/valohai/outputs/log.txt', 'w')
