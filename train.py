@@ -34,6 +34,10 @@ def get_files():
     trainpath="/valohai/inputs/training-set-images/FinalData_256.tgz"
 
     train_dir = '/tmp/tensorflow/images/'
+
+    if not os.path.exists(train_dir):
+        os.makedirs(train_dir)
+
     copy2(trainpath, train_dir)
     tar = tarfile.open(trainpath)
     tar.extractall("/tmp/tensorflow/images/")
