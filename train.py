@@ -18,7 +18,7 @@ import tarfile
 
 
 # you need to change this to your data directory
-train_dir ='F:/Udacity ML/git/udacity-capstone'
+#train_dir ='F:/Udacity ML/git/udacity-capstone'
 #Function to load the list of image file paths and its labels.
 def get_files():
     '''
@@ -36,7 +36,7 @@ def get_files():
     train_dir = os.getcwd()
     copy2(trainpath, train_dir)
     tar = tarfile.open(train_dir+"/FinalData_256.tgz")
-    tar.extractall(path=train_dir)
+    tar.extractall()
     tar.close()
 
     count=0
@@ -44,7 +44,7 @@ def get_files():
     with open('/valohai/inputs/training-set-labels/ramyaList.l3.csv') as f:
         reader = csv.reader(f,delimiter=',')
         for row in reader:
-            image_list.append(train_dir+"/"+row[0]+".jpeg")
+            image_list.append("/valohai/inputs/training-set-images/"+row[0]+".jpeg")
             temp=literal_eval(row[1])
             label_list.append(temp)
             count=count+1
