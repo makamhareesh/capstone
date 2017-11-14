@@ -350,7 +350,7 @@ import tensorflow as tf
 N_CLASSES = 2
 IMG_W = 256  # resize the image, if the input image is too large, training will be very slow.
 IMG_H = 256
-BATCH_SIZE = 32
+BATCH_SIZE = 8554
 CAPACITY = 20
 MAX_STEP = 150
 learning_rate = 0.01
@@ -500,7 +500,7 @@ def get_batch_test(image, label, image_W, image_H, batch_size, capacity):
 
     image_batch, label_batch = tf.train.batch([image, label],
                                                 batch_size= batch_size,
-                                                num_threads= 2,
+                                                num_threads= 1,
                                                 capacity = capacity)
 
 
