@@ -61,8 +61,8 @@ def get_files():
             count=count+1
             if temp==1:
                 drimage=drimage+1
-            if count==6000:
-                break
+            #if count==6000:
+            #    break
     #print (type(image_list[0]))
     #print (type(label_list[0]))
     print ("DR affected images number ",+drimage)
