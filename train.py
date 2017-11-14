@@ -44,7 +44,7 @@ def get_files():
     with open('/valohai/inputs/training-set-labels/ramyaList.l3.csv') as f:
         reader = csv.reader(f,delimiter=',')
         for row in reader:
-            image_list.append(train_dir+row[0]+".jpeg")
+            image_list.append(train_dir+"/"+row[0]+".jpeg")
             temp=literal_eval(row[1])
             label_list.append(temp)
             count=count+1
