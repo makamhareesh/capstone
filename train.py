@@ -38,7 +38,7 @@ def get_files():
     if not os.path.exists(train_dir):
         os.makedirs(train_dir)
 
-    copy2(trainpath, train_dir)
+    #copy2(trainpath, train_dir)
     tar = tarfile.open(trainpath)
     tar.extractall("/valohai/inputs/training-set-images/")
     tar.close()
