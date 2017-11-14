@@ -32,19 +32,21 @@ def get_files():
     image_list=[]
     label_list=[]
     trainpath="/valohai/inputs/training-set-images/FinalData_256.tgz"
-
-    train_dir = os.getcwd()
+    os.makedirs("/tmp/tensorflow/images/")
+    train_dir = '/tmp/tensorflow/images/'
     copy2(trainpath, train_dir)
-    tar = tarfile.open(train_dir+"/FinalData_256.tgz")
-    tar.extractall()
+    tar = tarfile.open(trainpath)
+    tar.extractall("/tmp/tensorflow/images/")
     tar.close()
-
+    for path,dirs,files in os.walk(train_dir):
+        for filename in files:
+            print os.path.join(path,filename)
     count=0
     drimage=0
     with open('/valohai/inputs/training-set-labels/ramyaList.l3.csv') as f:
         reader = csv.reader(f,delimiter=',')
         for row in reader:
-            image_list.append("/valohai/inputs/training-set-images/"+row[0]+".jpeg")
+            image_list.append(train_dir+row[0]+".jpeg")
             temp=literal_eval(row[1])
             label_list.append(temp)
             count=count+1
