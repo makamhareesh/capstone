@@ -3,7 +3,7 @@
 - step:
     name: Train model
     image: tensorflow/tensorflow:1.3.0-devel-gpu
-    command: python training.py
+    command: python train.py
     inputs:
       - name: training-set-images
       - name: training-set-labels
