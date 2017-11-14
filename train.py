@@ -43,11 +43,13 @@ def get_files():
     tar.extractall("/tmp/tensorflow/images/")
     tar.close()
     newcount=0
+    f=open('/valohai/outputs/log.txt', 'w')
     for path,dirs,files in os.walk(train_dir):
         for filename in files:
-            #print os.path.join(path,filename)
+            f.write(os.path.join(path,filename))
             newcount+=1
     print "newcount : "+str(newcount)
+    f.close()
     count=0
     drimage=0
     with open('/valohai/inputs/training-set-labels/ramyaList.l3.csv') as f:
